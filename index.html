@@ -24,6 +24,12 @@ layout: default
           new_url += '&time=week';
         } else if(new_url.indexOf("youtube") > -1) {
           new_url += '&sp=CAJCBAgBEgA%253D';
+        } else if(new_url.indexOf("tumblr") > -1) {
+          new_url += '/recent';
+        } else if(new_url.indexOf("vimeo") > -1) {
+          new_url += '&uploaded=this-month';
+        } else if(new_url.indexOf("hn.algolia.com") > -1) {
+          new_url += '&sort=byDate&prefix&page=0&dateRange=all&type=story';
         }
 
         $( this ).find('a').attr('href', new_url);
@@ -69,12 +75,24 @@ layout: default
     YouTube: <a href="https://www.youtube.com/results?search_query=" target="_blank">https://www.youtube.com/results?search_query=</a>
   </div>
 
+  <div class="site" data-url="https://vimeo.com/search?q=">
+    Vimeo: <a href="https://vimeo.com/search?q=" target="_blank">https://vimeo.com/search?q=</a>
+  </div>
+
   <div class="site" data-url="https://boards.4chan.org/search#/">
     4Chan: <a href="https://boards.4chan.org/search#/" target="_blank">https://boards.4chan.org/search#/</a>
   </div>
 
+  <div class="site" data-url="https://www.tumblr.com/search/">
+    Tumblr: <a href="https://www.tumblr.com/search/" target="_blank">https://www.tumblr.com/search/</a>
+  </div>
+
   <div class="site" data-url="https://www.quora.com/search?q=">
     Quora: <a href="https://www.quora.com/search?q=" target="_blank">https://www.quora.com/search?q=</a>
+  </div>
+
+  <div class="site" data-url="https://hn.algolia.com/?query=">
+    Hacker News: <a href="https://hn.algolia.com/?query=" target="_blank">https://hn.algolia.com/?query=</a>
   </div>
 
 </div>
