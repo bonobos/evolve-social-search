@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+
+    <title>Evolve Social Search</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Evolve Social Search</h1>
+      <p>
+        <style>
+  .site {
+    padding: 1em;
+  }
+</style>
+
+<script>
+  $( document ).ready(function() {
+    function populate_social() {
+      var search = $('.social-search').val();
+
+      $( ".social-sites .site" ).each(function( index ) {
+        var new_url = $( this ).attr('data-url') + search;
+
+        if(new_url.indexOf("facebook") > -1) {
+          new_url += '/keywords_search';
+        } else if(new_url.indexOf("reddit") > -1) {
+          new_url += '&sort=new';
+        } else if(new_url.indexOf("quora") > -1) {
+          new_url += '&time=week';
+        } else if(new_url.indexOf("youtube") > -1) {
+          new_url += '&sp=CAJCBAgBEgA%253D';
+        }
+
+        $( this ).find('a').attr('href', new_url);
+        $( this ).find('a').text(new_url);
+      });
+    }
+
+    $( ".search-button" ).click(function() {
+      populate_social();
+    });
+  });
+</script>
+
+<div class="form-group">
+  <label for="search">Social Search</label>
+  <input type="search" class="form-control social-search" placeholder="Enter social search">
+  <small id="emailHelp" class="form-text text-muted"></small>
+</div>
+<button type="submit" class="btn btn-primary search-button">Search</button>
+
+<div class="social-sites">
+  <div class="site" data-url="https://twitter.com/hashtag/">
+    Twitter: <a href="https://twitter.com/hashtag/" target="_blank">https://twitter.com/hashtag/</a>
+  </div>
+
+  <div class="site" data-url="https://trends.google.com/trends/explore?q=">
+    Google Trends: <a href="https://trends.google.com/trends/explore?q=" target="_blank">https://trends.google.com/trends/explore?q=</a>
+  </div>
+
+  <div class="site" data-url="https://www.facebook.com/search/str/">
+    Facebook: <a href="https://www.facebook.com/search/str/" target="_blank">https://www.facebook.com/search/str/</a>
+  </div>
+
+  <div class="site" data-url="https://www.reddit.com/search?q=">
+    Reddit: <a href="https://www.reddit.com/search?q=" target="_blank">https://www.reddit.com/search?q=</a>
+  </div>
+
+  <div class="site" data-url="https://www.instagram.com/explore/tags/">
+    Instagram: <a href="https://www.instagram.com/explore/tags/" target="_blank">https://www.instagram.com/explore/tags/</a>
+  </div>
+
+  <div class="site" data-url="https://www.youtube.com/results?search_query=">
+    YouTube: <a href="https://www.youtube.com/results?search_query=" target="_blank">https://www.youtube.com/results?search_query=</a>
+  </div>
+
+  <div class="site" data-url="https://boards.4chan.org/search#/">
+    4Chan: <a href="https://boards.4chan.org/search#/" target="_blank">https://boards.4chan.org/search#/</a>
+  </div>
+
+  <div class="site" data-url="https://www.quora.com/search?q=">
+    Quora: <a href="https://www.quora.com/search?q=" target="_blank">https://www.quora.com/search?q=</a>
+  </div>
+
+</div>
+
+      </p>
+    </main>
+
+    <footer class="footer float-right">
+      <div class="container">
+        <!--<span class="text-muted"><a href="about.html">Who made this?</a></span>-->
+      </div>
+    </footer>
+  </body>
+</html>
