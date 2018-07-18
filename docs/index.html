@@ -48,6 +48,8 @@
           new_url += '&uploaded=this-month';
         } else if(new_url.indexOf("hn.algolia.com") > -1) {
           new_url += '&sort=byDate&prefix&page=0&dateRange=all&type=story';
+        } else if(new_url.indexOf("trends.google.com") > -1) {
+          new_url += '&date=now%207-d';
         }
 
         $( this ).find('a').attr('href', new_url);
